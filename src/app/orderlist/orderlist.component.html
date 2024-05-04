@@ -1,0 +1,30 @@
+<div class="example-container">
+    <h3>Orders</h3>
+  
+    <p>
+      <mat-form-field appearance="outline" style="width:100%">
+        <mat-label>Name</mat-label>
+  
+        <input name="name" matInput placeholder="Placeholder" [(ngModel)]="searchValue" required>
+  
+        <mat-icon matSuffix>search</mat-icon>
+        <mat-hint>Search product</mat-hint>
+      </mat-form-field>
+    </p>
+    <mat-divider></mat-divider>
+    <p>
+      <mat-list role="list">
+        <mat-list-item role="listitem" *ngFor="let order of orders; track: trackOrder">
+          <div style="width:150px">{{ order.name }}</div>
+          <div style="width:150px">{{ order.price | currency }}</div>
+          <div style="width:150px;cursor:pointer;">
+            <button mat-button color="error" (click)="remove.next(order.id)">
+              <mat-icon matSuffix color="error">delete_forever</mat-icon> 
+            </button>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </p>
+  </div>
+  
